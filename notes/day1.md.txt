@@ -1,0 +1,18 @@
+# Day 1 - API Fundamentals
+
+Today I learned:
+
+- What an API is
+- What a Request is
+- What a Response is
+- What an Endpoint is
+
+Example endpoint:
+
+https://api-learning.nisalgunawardhana.com/api/users
+
+Notes:
+
+An API acts as a bridge between an application and a server.
+A request is sent to the server and a response is returned.
+An endpoint is a specific URL used to access data.
