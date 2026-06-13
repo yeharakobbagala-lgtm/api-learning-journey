@@ -1,18 +1,145 @@
 # Day 1 - API Fundamentals
 
-Today I learned:
+# Day 1 - Introduction to APIs
 
-- What an API is
-- What a Request is
-- What a Response is
-- What an Endpoint is
+## What is an API?
 
-Example endpoint:
+API stands for Application Programming Interface.
 
-https://api-learning.nisalgunawardhana.com/api/users
+An API acts as a bridge between an application and a server. It allows different software systems to communicate with each other.
 
-Notes:
+Example:
 
-An API acts as a bridge between an application and a server.
-A request is sent to the server and a response is returned.
-An endpoint is a specific URL used to access data.
+User → Application → API → Server
+
+The API sends requests to the server and returns responses to the application.
+
+---
+
+## Types of APIs
+
+### REST API
+
+* Uses HTTP protocol
+* Stateless
+* Uses JSON format
+* Most commonly used API style
+
+### SOAP API
+
+* XML-based
+* More complex than REST
+* Common in enterprise systems
+
+### GraphQL API
+
+* Uses a single endpoint
+* Clients request exactly the data they need
+* Reduces over-fetching of data
+
+### WebSocket API
+
+* Supports real-time communication
+* Two-way connection between client and server
+* Commonly used in chat applications and live updates
+
+---
+
+## Why Use APIs?
+
+### Separation of Concerns
+
+* Frontend and backend can be developed separately
+* Different teams can work independently
+
+### Reusability
+
+* One API can serve multiple applications
+* Web, mobile, and desktop applications can use the same API
+
+### Scalability
+
+* Backend services can be updated without changing the frontend
+
+---
+
+## API Components
+
+A typical API request contains:
+
+* URL (Endpoint)
+* HTTP Method
+* Headers
+* Request Body
+* Response Body
+* Status Code
+
+---
+
+## CRUD Operations
+
+CRUD stands for:
+
+* Create
+* Read
+* Update
+* Delete
+
+Mapping CRUD to HTTP Methods:
+
+| CRUD Operation | HTTP Method |
+| -------------- | ----------- |
+| Create         | POST        |
+| Read           | GET         |
+| Update         | PUT / PATCH |
+| Delete         | DELETE      |
+
+---
+
+## PUT vs PATCH
+
+### PUT
+
+Updates an entire resource.
+
+Example:
+
+PUT /api/users/1
+
+### PATCH
+
+Updates only specific fields of a resource.
+
+Example:
+
+PATCH /api/users/1
+
+---
+
+## Endpoints
+
+An endpoint is a specific URL where an API can be accessed.
+
+Example:
+
+GET /api/users
+
+GET /api/users/1
+
+REST APIs typically use plural nouns for collections.
+
+Example:
+
+/users
+/products
+/orders
+
+---
+
+## Key Takeaways
+
+* APIs allow applications and servers to communicate.
+* REST is the most common API architecture.
+* API requests contain URLs, methods, headers, and bodies.
+* CRUD operations map to HTTP methods.
+* Endpoints are specific URLs used to access resources.
