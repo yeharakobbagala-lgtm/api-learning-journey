@@ -1,0 +1,212 @@
+# Day 3 - REST Principles
+
+## What is REST?
+
+REST (Representational State Transfer) is an architectural style used to design APIs using standard HTTP methods and resources.
+
+REST is a set of rules that makes APIs simple, scalable, and easy to maintain.
+
+---
+
+# The 6 REST Principles
+
+## 1. Client-Server Architecture
+
+The client sends requests and the server sends responses.
+
+Example:
+
+Client → Server → Database
+
+Benefits:
+
+* Frontend and backend can be developed separately.
+* Multiple clients can use the same API.
+
+Examples of clients:
+
+* Web applications
+* Mobile applications
+* Postman
+
+---
+
+## 2. Stateless
+
+The server does not remember previous requests.
+
+Each request must contain all information needed to process it.
+
+Example:
+
+GET /api/users/1
+Authorization: Bearer token123
+
+Benefits:
+
+* Easier to scale
+* More reliable
+* If one server crashes, another server can handle the next request.
+
+---
+
+## 3. Cacheable
+
+Responses can be stored temporarily and reused.
+
+Example:
+
+GET /api/users/1
+
+The response can be cached to improve performance.
+
+Benefits:
+
+* Faster response times
+* Reduced server load
+* Less bandwidth usage
+
+Remember:
+
+* Stateless → About requests
+* Cacheable → About responses
+
+---
+
+## 4. Uniform Interface
+
+Every endpoint should follow the same style.
+
+### Use nouns, not verbs
+
+Good:
+
+/users
+
+/products
+
+Bad:
+
+/getUsers
+
+/createUser
+
+### Use HTTP methods for actions
+
+GET /users
+
+POST /users
+
+PUT /users/1
+
+DELETE /users/1
+
+### Use plural nouns
+
+Good:
+
+/users
+
+/products
+
+Bad:
+
+/user
+
+/product
+
+### Use lowercase
+
+Good:
+
+/api/users
+
+Bad:
+
+/api/Users
+
+---
+
+## 5. Layered System
+
+The client does not need to know the internal architecture.
+
+Example:
+
+Client → Load Balancer → API Gateway → Application Server → Database
+
+The client only sees the API.
+
+Benefits:
+
+* Better security
+* Better scalability
+* Easier maintenance
+
+---
+
+## 6. Code on Demand (Optional)
+
+The server can send executable code to the client.
+
+Example:
+
+* JavaScript sent to a browser
+
+This principle is optional and not commonly used in REST APIs.
+
+---
+
+# REST CRUD Mapping
+
+| Action | HTTP Method |
+| ------ | ----------- |
+| Create | POST        |
+| Read   | GET         |
+| Update | PUT / PATCH |
+| Delete | DELETE      |
+
+Examples:
+
+POST /users
+
+GET /users
+
+PUT /users/1
+
+DELETE /users/1
+
+---
+
+# REST vs GraphQL
+
+## REST
+
+Multiple endpoints:
+
+/users
+
+/products
+
+/orders
+
+## GraphQL
+
+Single endpoint:
+
+/graphql
+
+The client requests exactly the data it needs.
+
+---
+
+# Key Takeaways
+
+* REST is a set of rules for designing APIs.
+* Client and server are separated.
+* Each request is independent (Stateless).
+* Responses can be cached (Cacheable).
+* Endpoints should follow a consistent structure.
+* Use nouns for resources.
+* Use HTTP methods for actions.
+* CRUD operations map to HTTP methods.
