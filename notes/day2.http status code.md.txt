@@ -1,0 +1,260 @@
+# Day 2 - HTTP Status Codes
+
+## What are HTTP Status Codes?
+
+HTTP status codes are three-digit numbers returned by a server to indicate the result of a request.
+
+They help clients understand whether a request was successful or if an error occurred.
+
+---
+
+## Status Code Categories
+
+| Range   | Category      | Meaning                               |
+| ------- | ------------- | ------------------------------------- |
+| 100-199 | Informational | Request received, continue processing |
+| 200-299 | Success       | Request completed successfully        |
+| 300-399 | Redirection   | Resource has moved                    |
+| 400-499 | Client Error  | Problem with the request              |
+| 500-599 | Server Error  | Problem on the server                 |
+
+---
+
+## Success Status Codes
+
+### 200 OK
+
+The request was successful.
+
+Commonly used with:
+
+* GET
+* PUT
+* PATCH
+
+Example:
+
+```http
+GET /api/users
+```
+
+Response:
+
+```http
+HTTP/1.1 200 OK
+```
+
+---
+
+### 201 Created
+
+A new resource was successfully created.
+
+Commonly used with:
+
+* POST
+
+Example:
+
+```http
+POST /api/users
+```
+
+Response:
+
+```http
+HTTP/1.1 201 Created
+Location: /api/users/5
+Content-Type: application/json
+```
+
+The response should return the newly created resource.
+
+---
+
+### 204 No Content
+
+The request was successful but no response body is returned.
+
+Commonly used with:
+
+* DELETE
+
+Example:
+
+```http
+DELETE /api/users/1
+```
+
+Response:
+
+```http
+HTTP/1.1 204 No Content
+```
+
+---
+
+## Redirection Status Codes
+
+### 301 Moved Permanently
+
+The resource has permanently moved to a new URL.
+
+### 302 Found
+
+Temporary redirection.
+
+### 304 Not Modified
+
+The resource has not changed since the last request.
+
+---
+
+## Client Error Status Codes
+
+### 400 Bad Request
+
+The request contains invalid data.
+
+Possible causes:
+
+* Missing required values
+* Wrong data types
+* Invalid JSON syntax
+
+---
+
+### 401 Unauthorized
+
+Authentication is required or invalid.
+
+Possible causes:
+
+* Invalid credentials
+* Expired token
+* Missing authentication
+
+---
+
+### 403 Forbidden
+
+The user is authenticated but does not have permission.
+
+Possible causes:
+
+* Insufficient permissions
+* IP blocked
+* Account restrictions
+
+---
+
+### 404 Not Found
+
+The requested resource does not exist.
+
+Possible causes:
+
+* Wrong URL
+* Invalid ID
+* Deleted resource
+
+Example:
+
+```http
+GET /api/users/9999
+```
+
+Response:
+
+```http
+HTTP/1.1 404 Not Found
+```
+
+---
+
+### 405 Method Not Allowed
+
+The HTTP method is not supported for the endpoint.
+
+Example:
+
+Using DELETE on an endpoint that only supports GET.
+
+---
+
+### 409 Conflict
+
+The request conflicts with the current state of the resource.
+
+Example:
+
+Creating a user with an email that already exists.
+
+---
+
+### 422 Unprocessable Entity
+
+The request format is correct, but validation failed.
+
+Example:
+
+* Invalid email format
+* Password too short
+
+---
+
+### 429 Too Many Requests
+
+The client has exceeded the API rate limit.
+
+---
+
+## Server Error Status Codes
+
+### 500 Internal Server Error
+
+A problem occurred on the server.
+
+Possible causes:
+
+* Bugs in code
+* Unhandled exceptions
+* Server failures
+
+---
+
+### 502 Bad Gateway
+
+The server received an invalid response from another server.
+
+Possible cause:
+
+* Backend service unavailable
+
+---
+
+### 503 Service Unavailable
+
+The server is temporarily unavailable.
+
+Possible causes:
+
+* Maintenance
+* Server overload
+
+---
+
+### 504 Gateway Timeout
+
+The server did not receive a response in time from another service.
+
+---
+
+## Key Takeaways
+
+* Status codes indicate the result of an HTTP request.
+* 2xx codes represent successful requests.
+* 3xx codes represent redirections.
+* 4xx codes represent client-side errors.
+* 5xx codes represent server-side errors.
+* Understanding status codes is essential for API testing and debugging.
